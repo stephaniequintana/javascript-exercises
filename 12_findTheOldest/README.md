@@ -1,8 +1,24 @@
-# Exercise 12 - Find the Oldest
+# The Odin Project - Foundations Course
+These exercises are part of the JS Basic section of the The Odin Project foundations course. These are an excellent refresher and can be found [here](https://www.theodinproject.com/paths/foundations/courses/foundations/lessons/fundamentals-part-4).
+___
+## Exercise 12 - Find the Oldest
 
 Given an array of objects representing people with a birth and death year, return the oldest person.
 
-## Hints
-- You should return the whole person object, but the tests mostly just check to make sure the name is correct.
-- this can be done with a couple of chained array methods, or by using `reduce`.
-- One of the tests checks for people with no death-date.. use JavaScript's Date function to get their age as of today.
+## **spoiler alert: solution below**
+### All Tests Passed:
+```javascript
+const findTheOldest = function(arr) {
+  let thisYear = new Date().getFullYear();
+  let agesArr = arr.reduce((all, item) => {
+    let deathYear = item.yearOfDeath? item.yearOfDeath : thisYear;
+    all.push(deathYear - item.yearOfBirth);
+    return all;
+  }, []);
+
+  let oldestIndexedAt = agesArr.indexOf(Math.max(...agesArr));
+  console.log(arr[oldestIndexedAt].name);
+  return arr[oldestIndexedAt];
+};
+
+```

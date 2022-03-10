@@ -1,4 +1,7 @@
-# Exercise 07 - tempConversion
+# The Odin Project - Foundations Course
+These exercises are part of the JS Basic section of the The Odin Project foundations course. These are an excellent refresher and can be found [here](https://www.theodinproject.com/paths/foundations/courses/foundations/lessons/fundamentals-part-4).
+___
+## Exercise 07 - tempConversion
 
 Write two functions that convert temperatures from Fahrenheit to Celsius, and vice versa:
 ```
@@ -9,9 +12,16 @@ ctof(0) // celsius to fahrenheit, should return 32
 
 Because we are human, we want the result temperature to be rounded to one decimal place: i.e., `ftoc(100)` should return `37.8` and not `37.77777777777778`.
 
-This exercise asks you to create more than one function so the `module.exports` section of the spec file looks a little different this time.  Nothing to worry about, we're just packaging both functions into a single object to be exported.
+## **spoiler alert: solution below**
+### Although, my code is the same as in the solutions folder found [here](https://github.com/TheOdinProject/javascript-exercises/blob/jest-solutions/tempConversion/tempConversion.js), the TESTS DID NOT PASS due to:
+"ReferenceError: testPathIgnorePatterns is not defined"
+My code:
+```javascript
+const ftoc = function(degrees) {
+  return Math.round(((degrees - 32) * 5 / 9 * 10) / 10);
+};
 
-## Hints
-- You can find the relevant formulae on [Wikipedia](https://en.wikipedia.org/wiki/Conversion_of_units_of_temperature).
+const ctof = function(degrees) {
+  return Math.round((((degrees * 9 / 5) + 32) * 10) / 10);
 
-- Try to find by yourself on the Internet how to round a number to 1 decimal place in JavaScript. If you struggle, have a look [here](https://stackoverflow.com/q/7342957/5433628).
+```
